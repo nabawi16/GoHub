@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GoHub</string>
+    <string name="tidak_ada_koneksi_internet">Tidak ada koneksi internet</string>
+    <string name="internet_terhubung">Internet terhubung</string>
+    <string name="offline">Offline</string>
+    <string name="swipe_refresh">Swipe Refresh</string>
+</resources>
