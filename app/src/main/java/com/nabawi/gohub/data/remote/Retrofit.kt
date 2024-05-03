@@ -1,6 +1,9 @@
-package com.nabawi.gohub.data
+package com.nabawi.gohub.data.remote
 
+import com.nabawi.gohub.utils.Constans.BASE_URL
+import com.nabawi.gohub.utils.Constans.GITHUB_TOKEN
 import okhttp3.OkHttpClient
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 object Retrofit {

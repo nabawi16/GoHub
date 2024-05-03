@@ -1,14 +1,16 @@
-package com.nabawi.gohub.source
+package com.nabawi.gohub.data.source.repo
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.nabawi.gohub.data.Api
-import com.nabawi.gohub.data.Dao
-import com.nabawi.gohub.data.Retrofit
-import com.nabawi.gohub.data.UserDatabase
-import com.nabawi.gohub.model.SearchResponse
-import com.nabawi.gohub.model.UserEntity
+import com.nabawi.gohub.data.remote.Api
+import com.nabawi.gohub.data.local.Dao
+import com.nabawi.gohub.data.remote.Retrofit
+import com.nabawi.gohub.data.store.UserDataStore
+import com.nabawi.gohub.data.local.UserDatabase
+import com.nabawi.gohub.data.model.SearchResponse
+import com.nabawi.gohub.data.model.UserEntity
+import com.nabawi.gohub.data.source.Resource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

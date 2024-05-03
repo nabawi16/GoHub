@@ -1,4 +1,4 @@
-package com.nabawi.gohub.data
+package com.nabawi.gohub.data.store
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 

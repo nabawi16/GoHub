@@ -1,4 +1,4 @@
-package com.nabawi.gohub.source
+package com.nabawi.gohub.data.source
 
 sealed class Resource<T>(val data: T?  = null, val message: String? = null) {
     class Success<T>(data: T?): Resource<T>(data)

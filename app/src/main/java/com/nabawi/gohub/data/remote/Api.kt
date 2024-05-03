@@ -1,7 +1,7 @@
-package com.nabawi.gohub.data
+package com.nabawi.gohub.data.remote
 
-import com.nabawi.gohub.model.SearchResponse
-import com.nabawi.gohub.model.UserEntity
+import com.nabawi.gohub.data.model.SearchResponse
+import com.nabawi.gohub.data.model.UserEntity
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

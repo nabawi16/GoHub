@@ -1,4 +1,4 @@
-package com.nabawi.gohub.model
+package com.nabawi.gohub.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

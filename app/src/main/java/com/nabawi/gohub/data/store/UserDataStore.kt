@@ -1,4 +1,4 @@
-package com.nabawi.gohub.data
+package com.nabawi.gohub.data.store
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -16,8 +16,8 @@ class UserDataStore(private val context: Context) {
         private var mInstance: UserDataStore? = null
 
         fun getInstance(context: Context): UserDataStore =
-            mInstance?: synchronized(this) {
-                val newInstance = mInstance?: UserDataStore(context).also { mInstance = it }
+            mInstance ?: synchronized(this) {
+                val newInstance = mInstance ?: UserDataStore(context).also { mInstance = it }
                 newInstance
             }
     }

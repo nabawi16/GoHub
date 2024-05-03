@@ -1,4 +1,4 @@
-package com.nabawi.gohub.model
+package com.nabawi.gohub.data.model
 
 import com.squareup.moshi.Json
 
