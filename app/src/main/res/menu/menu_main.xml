@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/m_grid"
+        android:title="@string/grid"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_favorite"
+        android:title="@string/favorite"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_setting"
+        android:title="@string/setting"
+        app:showAsAction="never"/>
+</menu>

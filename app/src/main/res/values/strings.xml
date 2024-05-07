@@ -53,4 +53,9 @@
     <string name="company">Company</string>
     <string name="location">Location</string>
     <string name="share_button">share_button</string>
+    <string name="grid">Grid</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="search_hint">Search?</string>
+    <string name="user_tidak_ditemukan">User Tidak Ditemukan</string>
 </resources>

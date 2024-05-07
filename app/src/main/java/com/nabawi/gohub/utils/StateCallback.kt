@@ -2,7 +2,7 @@ package com.nabawi.gohub.utils
 
 import android.view.View
 
-interface StateCallback {
+interface StateCallback<T> {
     fun onSuccess(data: T)
     fun onLoading()
     fun onFailed(message: String?)

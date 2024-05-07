@@ -11,10 +11,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nabawi.gohub.R
 import com.nabawi.gohub.data.model.UserEntity
+import com.nabawi.gohub.data.source.Resource
 import com.nabawi.gohub.databinding.ActivityMainBinding
-import com.nabawi.gohub.ui.UserAdapter
+import com.nabawi.gohub.ui.adapters.UserAdapter
+import com.nabawi.gohub.utils.StateCallback
 
-class MainActivity : AppCompatActivity(), ViewStateCallback<List<UserEntity>> {
+
+class MainActivity : AppCompatActivity(), StateCallback<List<UserEntity>> {
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var userQuery: String
     private val viewModel by viewModels<MainViewModel>()
@@ -26,12 +29,12 @@ class MainActivity : AppCompatActivity(), ViewStateCallback<List<UserEntity>> {
         setContentView(mainBinding.root)
 
         userAdapter = UserAdapter()
-        mainBinding.includeMainSearch.rvListUser.apply {
+        mainBinding.includeSearch.rvListUser.apply {
             adapter = userAdapter
             layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
         }
 
-        mainBinding.searchView.apply {
+        mainBinding.viewSearch.apply {
             queryHint = resources.getString(R.string.search_hint)
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -56,23 +59,23 @@ class MainActivity : AppCompatActivity(), ViewStateCallback<List<UserEntity>> {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.option_menu, menu)
+        inflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_language -> {
+            R.id.m_grid -> {
                 val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
                 startActivity(intent)
                 true
             }
-            R.id.menu_favorite -> {
+            R.id.m_favorite -> {
                 val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
                 startActivity(intent)
                 true
             }
-            R.id.menu_settings -> {
+            R.id.m_setting -> {
                 val intent = Intent(this@MainActivity, SettingsActivity::class.java)
                 startActivity(intent)
                 true
@@ -83,45 +86,45 @@ class MainActivity : AppCompatActivity(), ViewStateCallback<List<UserEntity>> {
 
     override fun onSuccess(data: List<UserEntity>) {
         userAdapter.setAllData(data)
-        mainBinding.includeMainSearch.apply {
+        mainBinding.includeSearch.apply {
             ivSearchIcon.visibility = invisible
-            tvMessage.visibility = invisible
-            mainProgressBar.visibility = invisible
+            tvResponPesan.visibility = invisible
+            mainProgressbar.visibility = invisible
             rvListUser.visibility = visible
         }
     }
 
     override fun onLoading() {
-        mainBinding.includeMainSearch.apply {
+        mainBinding.includeSearch.apply {
             ivSearchIcon.visibility = invisible
-            tvMessage.visibility = invisible
-            mainProgressBar.visibility = visible
+            tvResponPesan.visibility = invisible
+            mainProgressbar.visibility = visible
             rvListUser.visibility = invisible
         }
     }
 
     override fun onFailed(message: String?) {
-        mainBinding.includeMainSearch.apply {
+        mainBinding.includeSearch.apply {
             if (message == null) {
                 ivSearchIcon.apply {
                     setImageResource(R.drawable.ic_search_empty)
                     visibility = visible
                 }
-                tvMessage.apply {
-                    text = resources.getString(R.string.user_not_found)
+                tvResponPesan.apply {
+                    text = resources.getString(R.string.user_tidak_ditemukan)
                     visibility = visible
                 }
             } else {
                 ivSearchIcon.apply {
-                    setImageResource(R.drawable.ic_search_failed)
+                    setImageResource(R.drawable.ic_search_gagal)
                     visibility = visible
                 }
-                tvMessage.apply {
+                tvResponPesan.apply {
                     text = message
                     visibility = visible
                 }
             }
-            mainProgressBar.visibility = invisible
+            mainProgressbar .visibility = invisible
             rvListUser.visibility = invisible
         }
     }

@@ -1,4 +1,4 @@
-package com.nabawi.gohub.ui
+package com.nabawi.gohub.ui.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nabawi.gohub.data.model.UserEntity
+import com.nabawi.gohub.databinding.ItemUserBinding
+import com.nabawi.gohub.ui.details.DetailActivity
+import com.nabawi.gohub.utils.Constans.EXTRA_USER
 
 class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     private val listUser = ArrayList<UserEntity>()
@@ -20,7 +23,7 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = ItemListUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(view)
     }
 
@@ -30,18 +33,19 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun getItemCount(): Int = listUser.size
 
-    inner class UserViewHolder(private val view: ItemListUserBinding): RecyclerView.ViewHolder(view.root) {
+    inner class UserViewHolder(private val view: ItemUserBinding): RecyclerView.ViewHolder(view.root) {
 
         fun bind(user: UserEntity) {
 
             view.apply {
-                tvUsername.text = user.username
+                tvItemName.text = user.name
+                tvItemUsername.text = user.username
             }
 
             Glide.with(itemView.context)
                 .load(user.avatar)
                 .apply(RequestOptions.circleCropTransform())
-                .into(view.ivImgUser)
+                .into(view.ivItemFoto)
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
