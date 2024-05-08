@@ -64,11 +64,6 @@ class DetailActivity : AppCompatActivity(), StateCallback<UserEntity?> {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
     override fun onSuccess(data: UserEntity?) {
 
         detailBinding.apply {
@@ -106,6 +101,11 @@ class DetailActivity : AppCompatActivity(), StateCallback<UserEntity?> {
             }
 
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     override fun onLoading() {

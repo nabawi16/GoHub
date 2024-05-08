@@ -17,9 +17,13 @@ import com.nabawi.gohub.utils.StateCallback
 
 class FollowingFragment : Fragment(), StateCallback<List<UserEntity>> {
 
+    private val followingBinding: FollowerFragmentBinding by viewBinding()
+    private val viewModel: FollowingViewModel by viewModels()
+    private lateinit var userAdapter: UserAdapter
+    private var username: String? = null
+
     companion object {
         private const val KEY_BUNDLE = "USERNAME"
-
         fun getInstance(username: String): Fragment {
             return FollowingFragment().apply {
                 arguments = Bundle().apply {
@@ -28,11 +32,6 @@ class FollowingFragment : Fragment(), StateCallback<List<UserEntity>> {
             }
         }
     }
-
-    private val followingBinding: FollowerFragmentBinding by viewBinding()
-    private val viewModel: FollowingViewModel by viewModels()
-    private lateinit var userAdapter: UserAdapter
-    private var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,6 @@ class FollowingFragment : Fragment(), StateCallback<List<UserEntity>> {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         userAdapter = UserAdapter()
         followingBinding.rvListUserFollower.apply {
             adapter = userAdapter
@@ -97,5 +95,4 @@ class FollowingFragment : Fragment(), StateCallback<List<UserEntity>> {
             rvListUserFollower.visibility = invisible
         }
     }
-
 }

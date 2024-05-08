@@ -13,6 +13,7 @@ import com.nabawi.gohub.R
 import com.nabawi.gohub.data.model.UserEntity
 import com.nabawi.gohub.data.source.Resource
 import com.nabawi.gohub.databinding.ActivityMainBinding
+import com.nabawi.gohub.ui.FavoriteActivity
 import com.nabawi.gohub.ui.adapters.UserAdapter
 import com.nabawi.gohub.utils.StateCallback
 
@@ -57,12 +58,6 @@ class MainActivity : AppCompatActivity(), StateCallback<List<UserEntity>> {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.m_grid -> {
@@ -82,6 +77,12 @@ class MainActivity : AppCompatActivity(), StateCallback<List<UserEntity>> {
             }
             else -> false
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
     override fun onSuccess(data: List<UserEntity>) {

@@ -17,6 +17,11 @@ import com.nabawi.gohub.utils.StateCallback
 
 class FollowerFragment: Fragment(), StateCallback<List<UserEntity>> {
 
+    private val followerBinding: FollowerFragmentBinding by viewBinding()
+    private val viewModel: FollowerViewModel by viewModels()
+    private lateinit var userAdapter: UserAdapter
+    private var username: String? = null
+
     companion object {
         private const val KEY_BUNDLE = "USERNAME"
 
@@ -28,11 +33,6 @@ class FollowerFragment: Fragment(), StateCallback<List<UserEntity>> {
             }
         }
     }
-
-    private val followerBinding: FollowerFragmentBinding by viewBinding()
-    private val viewModel: FollowerViewModel by viewModels()
-    private lateinit var userAdapter: UserAdapter
-    private var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
