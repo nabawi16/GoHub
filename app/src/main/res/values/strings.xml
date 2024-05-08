@@ -61,4 +61,6 @@
     <string name="follower_tidak_ditemukan">Follower Tidak Ditemukan</string>
     <string name="following_tidak_ditemukan">Following Tidak Ditemukan</string>
     <string name="search_users">Search Users</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="search_user">Search User</string>
 </resources>

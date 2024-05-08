@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="10dp"
         android:layout_marginTop="8dp"
-        android:elevation="8dp"
-        app:layout_constraintTop_toTopOf="@+id/include_search"
-        tools:layout_editor_absoluteX="16dp">
+        android:elevation="6dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/view_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp" />
+            android:layout_margin="8dp" />
     </androidx.cardview.widget.CardView>
 
     <include
@@ -30,4 +29,4 @@
         android:layout_height="match_parent"
         layout="@layout/include_search"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

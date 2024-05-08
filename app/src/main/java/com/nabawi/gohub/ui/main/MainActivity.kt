@@ -13,7 +13,8 @@ import com.nabawi.gohub.R
 import com.nabawi.gohub.data.model.UserEntity
 import com.nabawi.gohub.data.source.Resource
 import com.nabawi.gohub.databinding.ActivityMainBinding
-import com.nabawi.gohub.ui.FavoriteActivity
+import com.nabawi.gohub.ui.setting.SettingActivity
+import com.nabawi.gohub.ui.favorite.FavoriteActivity
 import com.nabawi.gohub.ui.adapters.UserAdapter
 import com.nabawi.gohub.utils.StateCallback
 
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity(), StateCallback<List<UserEntity>> {
                 true
             }
             R.id.m_setting -> {
-                val intent = Intent(this@MainActivity, SettingsActivity::class.java)
+                val intent = Intent(this@MainActivity, SettingActivity::class.java)
                 startActivity(intent)
                 true
             }

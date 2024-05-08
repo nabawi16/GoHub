@@ -1,4 +1,4 @@
-package com.nabawi.gohub.ui
+package com.nabawi.gohub.ui.favorite
 
 import android.os.Bundle
 import androidx.activity.viewModels

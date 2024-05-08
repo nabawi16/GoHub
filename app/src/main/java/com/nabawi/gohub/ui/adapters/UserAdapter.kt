@@ -38,7 +38,6 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         fun bind(user: UserEntity) {
 
             view.apply {
-                tvItemName.text = user.name
                 tvItemUsername.text = user.username
             }
 
